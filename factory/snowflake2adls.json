@@ -1,0 +1,9 @@
+{
+	"name": "snowflake2adls",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8bb13383-3b17-4bba-8a0b-dafc5d4575c8",
+		"tenantId": "1c4f0491-06cd-484f-858b-3274ce149115"
+	}
+}
