@@ -1,0 +1,105 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "snowflake2adls"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"Snow_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Snow'"
+		},
+		"AzureBlobSP_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'AzureBlobSP'"
+		},
+		"storedprocedure_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'storedprocedure'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://snow2adl.dfs.core.windows.net/"
+		},
+		"AzureBlobSP_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://blobforsnow.blob.core.windows.net/"
+		},
+		"AzureBlobSP_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "1c4f0491-06cd-484f-858b-3274ce149115"
+		},
+		"AzureBlobSP_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "8202a4ae-5b17-4a16-a138-111ac2f8ad95"
+		},
+		"AzureBlobSAS_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'AzureBlobSAS'"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "snowflake2adls_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"Snow_connectionString": {
+						"value": "[parameters('Snow_connectionString')]"
+					},
+					"AzureBlobSP_servicePrincipalCredential": {
+						"value": "[parameters('AzureBlobSP_servicePrincipalCredential')]"
+					},
+					"storedprocedure_connectionString": {
+						"value": "[parameters('storedprocedure_connectionString')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureBlobSP_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobSP_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureBlobSP_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureBlobSP_properties_typeProperties_tenant')]"
+					},
+					"AzureBlobSP_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureBlobSP_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureBlobSAS_sasUri": {
+						"value": "[parameters('AzureBlobSAS_sasUri')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

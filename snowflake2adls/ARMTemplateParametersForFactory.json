@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "snowflake2adls"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Snow_connectionString": {
+			"value": ""
+		},
+		"AzureBlobSP_servicePrincipalCredential": {
+			"value": ""
+		},
+		"storedprocedure_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://snow2adl.dfs.core.windows.net/"
+		},
+		"AzureBlobSP_properties_typeProperties_serviceEndpoint": {
+			"value": "https://blobforsnow.blob.core.windows.net/"
+		},
+		"AzureBlobSP_properties_typeProperties_tenant": {
+			"value": "1c4f0491-06cd-484f-858b-3274ce149115"
+		},
+		"AzureBlobSP_properties_typeProperties_servicePrincipalId": {
+			"value": "8202a4ae-5b17-4a16-a138-111ac2f8ad95"
+		},
+		"AzureBlobSAS_sasUri": {
+			"value": ""
+		}
+	}
+}
