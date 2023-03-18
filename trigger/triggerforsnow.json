@@ -1,0 +1,24 @@
+{
+	"name": "triggerforsnow",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Snowfake_2_ADLS_copy_pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2023-03-18T15:58:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
